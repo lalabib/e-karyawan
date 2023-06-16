@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tv_item_movie"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:selectableItemBackground"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="5dp"
+    app:cardUseCompatPadding="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_movies"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_ava"
+            android:layout_width="96dp"
+            android:layout_height="160dp"
+            android:layout_marginStart="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ava"
+            android:contentDescription="@string/photo" />
+
+        <TextView
+            android:id="@+id/tv_name_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:textSize="16sp"
+            android:text="@string/name_title"
+            app:layout_constraintStart_toEndOf="@id/iv_ava"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/tv_name_title"
+            app:layout_constraintTop_toTopOf="@id/tv_name_title"
+            tools:text="@string/name"/>
+
+        <TextView
+            android:id="@+id/tv_adddress_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textSize="16sp"
+            android:text="@string/address_title"
+            app:layout_constraintStart_toStartOf="@id/tv_name_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_name_title" />
+
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/tv_adddress_title"
+            app:layout_constraintTop_toTopOf="@id/tv_adddress_title"
+            tools:text="@string/address"/>
+
+        <TextView
+            android:id="@+id/tv_gender_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textSize="16sp"
+            android:text="@string/gender_title"
+            app:layout_constraintStart_toStartOf="@id/tv_adddress_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_adddress_title" />
+
+        <TextView
+            android:id="@+id/tv_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/tv_gender_title"
+            app:layout_constraintTop_toTopOf="@id/tv_gender_title"
+            tools:text="@string/gender"/>
+
+        <TextView
+            android:id="@+id/tv_position_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textSize="16sp"
+            android:text="@string/position_title"
+            app:layout_constraintStart_toStartOf="@id/tv_gender_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_gender_title" />
+
+        <TextView
+            android:id="@+id/tv_position"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/tv_position_title"
+            app:layout_constraintTop_toTopOf="@id/tv_position_title"
+            tools:text="@string/position"/>
+
+        <TextView
+            android:id="@+id/tv_length_of_work_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textSize="16sp"
+            android:text="@string/length_of_work_title"
+            app:layout_constraintStart_toStartOf="@id/tv_position_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_position_title" />
+
+        <TextView
+            android:id="@+id/tv_length_of_work"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/tv_length_of_work_title"
+            app:layout_constraintTop_toTopOf="@id/tv_length_of_work_title"
+            tools:text="@string/length_of_work"/>
+
+        <TextView
+            android:id="@+id/tv_salary_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textSize="16sp"
+            android:text="@string/salary_title"
+            app:layout_constraintStart_toStartOf="@id/tv_length_of_work_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_length_of_work_title" />
+
+        <TextView
+            android:id="@+id/tv_salary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/tv_salary_title"
+            app:layout_constraintTop_toTopOf="@id/tv_salary_title"
+            tools:text="@string/salary"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

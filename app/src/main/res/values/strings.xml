@@ -1,3 +1,67 @@
 <resources>
     <string name="app_name">e-karyawan</string>
+    <string name="menu_1">Data Karyawan</string>
+    <string name="menu_2">Tambah Karyawan</string>
+    <string name="menu_3">Hitung Gaji Karyawan</string>
+    <string name="text_view">Text</string>
+
+    <string name="name_title">Nama: </string>
+    <string name="address_title">Alamat: </string>
+    <string name="gender_title">Jenis Kelamin: </string>
+    <string name="position_title">Jabatan: </string>
+    <string name="length_of_work_title">Lama Bekerja: </string>
+    <string name="salary_title">Gaji Pokok: </string>
+
+    <string name="name">Nama Karyawan</string>
+    <string name="address">Alamat</string>
+    <string name="gender">Jenis Kelamin</string>
+    <string name="position">Jabatan</string>
+    <string name="length_of_work">Lama Bekerja</string>
+    <string name="salary">Gaji Pokok</string>
+
+    <string name="photo">gambar</string>
+    <string name="title_employee">Daftar Karyawan</string>
+    <string name="title_detail">Detail Karyawan</string>
+    <string name="title_add">Tambah Karyawan</string>
+    <string name="title_salary">Hitung Gaji Karyawan</string>
+    <string name="id">Id Karyawan</string>
+
+    <string name="btn_delete">Hapus data Karyawan</string>
+    <string name="btn_insert">Tambah data Karyawan</string>
+    <string name="btn_edit">Ubah data Karyawan</string>
+    
+    <string name="cant_empty">Kolom ini tidak boleh kosong</string>
+    <string name="succes">Data Karyawan Berhasil ditambahkan!</string>
+    <string name="deleted">Data Karyawan Berhasil dihapus!</string>
+    <string name="edited">Data Karyawan berhasil diperbarui!</string>
+    <string name="confirm">Konfirmasi</string>
+    <string name="logout_msg">Apakah anda yakin ingin keluar dari aplikasi?</string>
+    <string name="delete_msg">Apakah anda yakin ingin menghapus data karyawan tersebut?</string>
+    <string name="edit_msg">Apakah anda yakin ingin mengubah data karyawan tersebut?</string>
+    <string name="yes">Iya</string>
+    <string name="no">Tidak</string>
+
+    <string-array name="jenis_kelamin">
+        <item>Laki-laki</item>
+        <item>Perempuan</item>
+    </string-array>
+
+    <string-array name="jabatan">
+        <item>Manager</item>
+        <item>Supervisor</item>
+        <item>Staff</item>
+    </string-array>
+
+    <string-array name="lama_jabatan">
+        <item>1 Tahun</item>
+        <item>2 Tahun</item>
+        <item>3 Tahun</item>
+        <item>4 Tahun</item>
+        <item>5 Tahun</item>
+        <item>6 Tahun</item>
+        <item>7 Tahun</item>
+        <item>8 Tahun</item>
+        <item>9 Tahun</item>
+        <item>10 Tahun</item>
+    </string-array>
 </resources>

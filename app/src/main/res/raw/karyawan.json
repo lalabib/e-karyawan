@@ -1,0 +1,58 @@
+{
+  "tb_karyawan": [
+    {
+      "id": 132193,
+      "nama": "Jason Junaedi",
+      "alamat": "Bekasi",
+      "jenisKelamin": "Laki-laki",
+      "jabatan": "Manager",
+	  "lamaBekerja": "7 Tahun",
+	  "gajiPokok": 24000000
+    },
+    {
+      "id": 232194,
+      "nama": "Kurniawan",
+      "alamat": "Depok",
+      "jenisKelamin": "Laki-laki",
+      "jabatan": "Supervisor",
+	  "lamaBekerja": "4 Tahun",
+	  "gajiPokok": 16000000
+    },
+    {
+      "id": 332195,
+      "nama": "Mega Fatmawati",
+      "alamat": "Jakarta Pusat",
+      "jenisKelamin": "Perempuan",
+      "jabatan": "Supervisor",
+	  "lamaBekerja": "4 Tahun",
+	  "gajiPokok": 15500000
+    },
+    {
+      "id": 432196,
+      "nama": "David Kazama",
+      "alamat": "Jakarta Selatan",
+      "jenisKelamin": "Laki-laki",
+      "jabatan": "Staff",
+	  "lamaBekerja": "2 Tahun",
+	  "gajiPokok": 8500000
+    },
+    {
+      "id": 532197,
+      "nama": "Muhammad Farid",
+      "alamat": "Depok",
+      "jenisKelamin": "Laki-laki",
+      "jabatan": "Staff",
+	  "lamaBekerja": "2 Tahun",
+	  "gajiPokok": 8200000
+    },
+	{
+      "id": 632198,
+      "nama": "Nico Ferdiansyah",
+      "alamat": "Jakarta Timur",
+      "jenisKelamin": "Laki-laki",
+      "jabatan": "Staff",
+	  "lamaBekerja": "1 Tahun",
+	  "gajiPokok": 7500000
+    }
+  ]
+}
