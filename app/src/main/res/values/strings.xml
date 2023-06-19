@@ -29,7 +29,9 @@
     <string name="btn_delete">Hapus data Karyawan</string>
     <string name="btn_insert">Tambah data Karyawan</string>
     <string name="btn_edit">Ubah data Karyawan</string>
-    
+    <string name="btn_login">Masuk</string>
+    <string name="btn_logout">Keluar</string>
+
     <string name="cant_empty">Kolom ini tidak boleh kosong</string>
     <string name="succes">Data Karyawan Berhasil ditambahkan!</string>
     <string name="deleted">Data Karyawan Berhasil dihapus!</string>
@@ -40,6 +42,17 @@
     <string name="edit_msg">Apakah anda yakin ingin mengubah data karyawan tersebut?</string>
     <string name="yes">Iya</string>
     <string name="no">Tidak</string>
+
+    <string name="login_title">PT. Baroqah tbk.</string>
+    <string name="username_invalid">Username tidak sesuai</string>
+    <string name="pass_invalid">Password tidak sesuai</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login_success">Berhasil masuk</string>
+    <string name="admin">admin</string>
+    <string name="admin_pass">admin123</string>
+    <string name="hrd">hrd</string>
+    <string name="hrd_pass">hrd123</string>
 
     <string-array name="jenis_kelamin">
         <item>Laki-laki</item>

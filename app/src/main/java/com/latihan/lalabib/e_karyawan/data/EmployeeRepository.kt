@@ -2,6 +2,10 @@ package com.latihan.lalabib.e_karyawan.data
 
 import android.content.Context
 import androidx.lifecycle.LiveData
+import com.latihan.lalabib.e_karyawan.data.local.EmployeeDao
+import com.latihan.lalabib.e_karyawan.data.local.EmployeeDatabase
+import com.latihan.lalabib.e_karyawan.data.local.EmployeeEntities
+import com.latihan.lalabib.e_karyawan.data.local.UserEntities
 import java.util.concurrent.Callable
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
@@ -26,10 +30,16 @@ class EmployeeRepository(
         employeeDao.deleteEmployee(employee)
     }
 
-    fun updatedEmployee(employee: EmployeeEntities) {
-        val data = Callable { employeeDao.updateEmployee(employee) }
-        val executor = executor.submit(data)
-        return executor.get()
+    suspend fun updatedEmployee(employee: EmployeeEntities) {
+        employeeDao.updateEmployee(employee)
+    }
+
+    fun getUser(): LiveData<UserEntities> = employeeDao.getUser()
+
+    fun getUserByUsername(username: String): LiveData<UserEntities> = employeeDao.getUserByUsername(username)
+
+    suspend fun checkLogin(isLogin: Boolean, username: String) {
+        employeeDao.checkLogin(isLogin, username)
     }
 
     companion object {

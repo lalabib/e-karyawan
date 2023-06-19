@@ -1,0 +1,18 @@
+{
+  "tb_user": [
+    {
+      "id": 1211,
+      "nama": "admin",
+	  "password": "admin123",
+	  "jabatan": "Admin",
+	  "isLogin": false
+    },
+    {
+      "id": 2122,
+      "nama": "hrd",
+	  "password": "hrd123",
+	  "jabatan": "HRD",
+	  "isLogin": false
+    }
+  ]
+}

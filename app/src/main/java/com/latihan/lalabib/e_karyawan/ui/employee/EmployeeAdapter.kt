@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.latihan.lalabib.e_karyawan.data.EmployeeEntities
+import com.latihan.lalabib.e_karyawan.data.local.EmployeeEntities
 import com.latihan.lalabib.e_karyawan.databinding.ItemListBinding
 import java.text.NumberFormat
 import java.util.Locale

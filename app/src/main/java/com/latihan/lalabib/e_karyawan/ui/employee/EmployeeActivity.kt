@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.latihan.lalabib.e_karyawan.R
-import com.latihan.lalabib.e_karyawan.data.EmployeeEntities
+import com.latihan.lalabib.e_karyawan.data.local.EmployeeEntities
 import com.latihan.lalabib.e_karyawan.databinding.ActivityEmployeeBinding
 import com.latihan.lalabib.e_karyawan.ui.detail.DetailActivity
 import com.latihan.lalabib.e_karyawan.ui.detail.DetailActivity.Companion.employee_id

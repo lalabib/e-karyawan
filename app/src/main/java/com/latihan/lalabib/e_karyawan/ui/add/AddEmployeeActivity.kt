@@ -7,7 +7,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.latihan.lalabib.e_karyawan.R
-import com.latihan.lalabib.e_karyawan.data.EmployeeEntities
+import com.latihan.lalabib.e_karyawan.data.local.EmployeeEntities
 import com.latihan.lalabib.e_karyawan.databinding.ActivityAddEmployeeBinding
 import com.latihan.lalabib.e_karyawan.ui.employee.EmployeeActivity
 import com.latihan.lalabib.e_karyawan.utils.ViewModelFactory

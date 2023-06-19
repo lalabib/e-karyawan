@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.switchMap
 import androidx.lifecycle.viewModelScope
-import com.latihan.lalabib.e_karyawan.data.EmployeeEntities
+import com.latihan.lalabib.e_karyawan.data.local.EmployeeEntities
 import com.latihan.lalabib.e_karyawan.data.EmployeeRepository
 import kotlinx.coroutines.launch
 
@@ -31,5 +31,9 @@ class DetailViewModel(private val repository: EmployeeRepository): ViewModel() {
         }
     }
 
-    fun updateEmployee(employee: EmployeeEntities) = repository.updatedEmployee(employee)
+    fun updateEmployee(employee: EmployeeEntities) {
+        viewModelScope.launch {
+            repository.updatedEmployee(employee)
+        }
+    }
 }
