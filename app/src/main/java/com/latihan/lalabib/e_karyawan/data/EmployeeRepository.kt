@@ -34,13 +34,10 @@ class EmployeeRepository(
         employeeDao.updateEmployee(employee)
     }
 
-    fun getUser(): LiveData<UserEntities> = employeeDao.getUser()
+    fun getUser(): LiveData<List<UserEntities>> = employeeDao.getUser()
 
-    fun getUserByUsername(username: String): LiveData<UserEntities> = employeeDao.getUserByUsername(username)
-
-    suspend fun checkLogin(isLogin: Boolean, username: String) {
-        employeeDao.checkLogin(isLogin, username)
-    }
+    fun getUserByName(username: String): LiveData<UserEntities> =
+        employeeDao.getUserByName(username)
 
     companion object {
         @Volatile

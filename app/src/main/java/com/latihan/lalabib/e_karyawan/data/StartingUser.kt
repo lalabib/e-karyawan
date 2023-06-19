@@ -41,9 +41,7 @@ class StartingUser(private val context: Context): RoomDatabase.Callback() {
                         UserEntities(
                             item.getInt("id"),
                             item.getString("nama"),
-                            item.getString("password"),
-                            item.getString("jabatan"),
-                            item.getBoolean("isLogin")
+                            item.getString("password")
                         )
                     )
                 }

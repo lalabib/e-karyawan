@@ -1,9 +1,7 @@
 package com.latihan.lalabib.e_karyawan.data.local
 
-import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import kotlinx.parcelize.Parcelize
 
 @Entity(tableName = "tb_karyawan")
 data class EmployeeEntities(
@@ -24,7 +22,6 @@ data class EmployeeEntities(
 )
 
 @Entity(tableName = "tb_user")
-@Parcelize
 data class UserEntities(
     @PrimaryKey
     val id: Int,
@@ -32,8 +29,4 @@ data class UserEntities(
     val nama: String,
 
     val password: String,
-
-    val jabatan: String,
-
-    var isLogin: Boolean
-): Parcelable
+)

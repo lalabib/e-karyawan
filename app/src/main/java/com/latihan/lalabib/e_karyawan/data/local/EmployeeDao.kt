@@ -30,14 +30,11 @@ interface EmployeeDao {
     suspend fun updateEmployee(employee: EmployeeEntities)
 
     @Query("Select * from tb_user")
-    fun getUser(): LiveData<UserEntities>
+    fun getUser(): LiveData<List<UserEntities>>
 
     @Query("Select * from tb_user where nama = :username")
-    fun getUserByUsername(username: String): LiveData<UserEntities>
+    fun getUserByName(username: String): LiveData<UserEntities>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAllUser(vararg user: UserEntities)
-
-    @Query("Update tb_user set isLogin = :isLogin where nama = :username")
-    suspend fun checkLogin(isLogin: Boolean, username: String)
 }

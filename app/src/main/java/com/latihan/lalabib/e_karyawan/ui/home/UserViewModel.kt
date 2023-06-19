@@ -1,28 +1,27 @@
 package com.latihan.lalabib.e_karyawan.ui.home
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.switchMap
 import com.latihan.lalabib.e_karyawan.data.EmployeeRepository
 import com.latihan.lalabib.e_karyawan.data.local.UserEntities
-import kotlinx.coroutines.launch
 
-class UserViewModel(private val repository: EmployeeRepository): ViewModel() {
+class UserViewModel(private val repository: EmployeeRepository) : ViewModel() {
 
-    fun getUser(): LiveData<UserEntities> = repository.getUser()
+    fun getUser(): LiveData<List<UserEntities>> = repository.getUser()
 
-//    fun getAdmin(): LiveData<UserEntities> = repository.getUserByUsername(admin)
+    private val _userName = MutableLiveData<String>()
 
-//    fun getHrd(): LiveData<UserEntities> = repository.getUserByUsername(hrd)
-
-    fun checkLogin(isLogin: Boolean, username: String) {
-        viewModelScope.launch {
-            repository.checkLogin(isLogin, username)
-        }
+    private val _username = _userName.switchMap { username ->
+        repository.getUserByName(username)
     }
+    val username: LiveData<UserEntities> = _username
 
-    companion object {
-        const val admin = "admin"
-        const val hrd = "hrd"
+    fun setUsername(username: String) {
+        if (username == _userName.value) {
+            return
+        }
+        _userName.value = username
     }
 }

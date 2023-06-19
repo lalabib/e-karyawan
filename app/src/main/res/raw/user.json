@@ -3,16 +3,12 @@
     {
       "id": 1211,
       "nama": "admin",
-	  "password": "admin123",
-	  "jabatan": "Admin",
-	  "isLogin": false
+	  "password": "admin123"
     },
     {
       "id": 2122,
       "nama": "hrd",
-	  "password": "hrd123",
-	  "jabatan": "HRD",
-	  "isLogin": false
+	  "password": "hrd123"
     }
   ]
 }

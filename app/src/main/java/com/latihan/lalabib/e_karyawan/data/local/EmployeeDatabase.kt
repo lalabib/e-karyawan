@@ -9,7 +9,7 @@ import com.latihan.lalabib.e_karyawan.data.StartingUser
 
 @Database(
     entities = [EmployeeEntities::class, UserEntities::class],
-    version = 2,
+    version = 3,
     exportSchema = false
 )
 abstract class EmployeeDatabase : RoomDatabase() {
@@ -26,15 +26,6 @@ abstract class EmployeeDatabase : RoomDatabase() {
                 EmployeeDatabase::class.java,
                 "karyawan_db"
             )
-                /*.addCallback(object : Callback() {
-                    override fun onCreate(db: SupportSQLiteDatabase) {
-                        super.onCreate(db)
-                        //Executors.newSingleThreadExecutor().execute {
-                            fillWithStartingDataEmployee(context, getInstance(context).employeeDao())
-                            fillWithStartingDataUser(context, getInstance(context).employeeDao())
-                        //}
-                    }
-                })*/
                 .addCallback(StartingEmployee(context))
                 .addCallback(StartingUser(context))
                 .fallbackToDestructiveMigration()
