@@ -8,6 +8,7 @@ import com.latihan.lalabib.e_karyawan.ui.add.AddEmployeeViewModel
 import com.latihan.lalabib.e_karyawan.ui.detail.DetailViewModel
 import com.latihan.lalabib.e_karyawan.ui.employee.EmployeeViewModel
 import com.latihan.lalabib.e_karyawan.ui.home.UserViewModel
+import com.latihan.lalabib.e_karyawan.ui.salary.SalaryViewModel
 
 class ViewModelFactory(private val repository: EmployeeRepository) : ViewModelProvider.Factory {
 
@@ -25,6 +26,9 @@ class ViewModelFactory(private val repository: EmployeeRepository) : ViewModelPr
             }
             modelClass.isAssignableFrom(UserViewModel::class.java) -> {
                 UserViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(SalaryViewModel::class.java) -> {
+                SalaryViewModel(repository) as T
             }
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)
         }

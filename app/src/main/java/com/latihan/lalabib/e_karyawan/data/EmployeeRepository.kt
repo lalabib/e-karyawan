@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import com.latihan.lalabib.e_karyawan.data.local.EmployeeDao
 import com.latihan.lalabib.e_karyawan.data.local.EmployeeDatabase
 import com.latihan.lalabib.e_karyawan.data.local.EmployeeEntities
+import com.latihan.lalabib.e_karyawan.data.local.SalaryEntity
 import com.latihan.lalabib.e_karyawan.data.local.UserEntities
 import java.util.concurrent.Callable
 import java.util.concurrent.ExecutorService
@@ -19,6 +20,12 @@ class EmployeeRepository(
 
     fun getEmployeeById(employeeId: Int): LiveData<EmployeeEntities> =
         employeeDao.getEmployeeById(employeeId)
+
+    fun getAllEmployeeByName(): LiveData<List<String>> =
+        employeeDao.getAllEmployeeByName()
+
+    fun getEmployeeByName(employeeName: String): LiveData<EmployeeEntities> =
+        employeeDao.getEmployeeByName(employeeName)
 
     fun insertEmployee(newEmployee: EmployeeEntities): Long {
         val data = Callable { employeeDao.insertEmployee(newEmployee) }
@@ -38,6 +45,8 @@ class EmployeeRepository(
 
     fun getUserByName(username: String): LiveData<UserEntities> =
         employeeDao.getUserByName(username)
+
+    suspend fun insertSalary(salary: SalaryEntity) = employeeDao.insertSalary(salary)
 
     companion object {
         @Volatile

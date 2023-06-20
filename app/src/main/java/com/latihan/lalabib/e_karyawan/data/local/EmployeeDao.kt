@@ -17,6 +17,12 @@ interface EmployeeDao {
     @Query("Select * from tb_karyawan where id = :employeeId")
     fun getEmployeeById(employeeId: Int): LiveData<EmployeeEntities>
 
+    @Query("Select nama from tb_karyawan")
+    fun getAllEmployeeByName(): LiveData<List<String>>
+
+    @Query("Select * from tb_karyawan where nama = :employeeName")
+    fun getEmployeeByName(employeeName: String): LiveData<EmployeeEntities>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertEmployee(employee: EmployeeEntities): Long
 
@@ -37,4 +43,7 @@ interface EmployeeDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAllUser(vararg user: UserEntities)
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertSalary(salary: SalaryEntity)
 }

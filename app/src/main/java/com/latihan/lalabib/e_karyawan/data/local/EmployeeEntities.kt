@@ -30,3 +30,21 @@ data class UserEntities(
 
     val password: String,
 )
+
+@Entity(tableName = "tb_gaji")
+data class SalaryEntity(
+    @PrimaryKey
+    val id: String,
+
+    val name: String,
+
+    val bulan: String,
+
+    val gajiPokok: Int,
+
+    val bonus: Int,
+
+    val pph: Int,
+
+    val totalGaji: Int
+)

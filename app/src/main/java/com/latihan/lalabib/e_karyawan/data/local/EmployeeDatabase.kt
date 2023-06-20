@@ -8,7 +8,7 @@ import com.latihan.lalabib.e_karyawan.data.StartingEmployee
 import com.latihan.lalabib.e_karyawan.data.StartingUser
 
 @Database(
-    entities = [EmployeeEntities::class, UserEntities::class],
+    entities = [EmployeeEntities::class, UserEntities::class, SalaryEntity::class],
     version = 3,
     exportSchema = false
 )

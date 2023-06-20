@@ -8,11 +8,12 @@ import android.view.MenuItem
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.latihan.lalabib.e_karyawan.R
-import com.latihan.lalabib.e_karyawan.data.local.UserEntities
 import com.latihan.lalabib.e_karyawan.databinding.ActivityHomeBinding
 import com.latihan.lalabib.e_karyawan.ui.add.AddEmployeeActivity
 import com.latihan.lalabib.e_karyawan.ui.employee.EmployeeActivity
+import com.latihan.lalabib.e_karyawan.ui.employee.EmployeeActivity.Companion.extra_username
 import com.latihan.lalabib.e_karyawan.ui.login.LoginActivity
+import com.latihan.lalabib.e_karyawan.ui.salary.SalaryActivity
 import com.latihan.lalabib.e_karyawan.utils.ViewModelFactory
 
 
@@ -27,9 +28,8 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setupViewModel()
-        moveToEmployee()
         moveToAddEmployee()
-        // move to hitungGaji()
+        moveToSalary()
     }
 
     private fun setupViewModel() {
@@ -45,6 +45,14 @@ class HomeActivity : AppCompatActivity() {
                 } else if (users.nama == getString(R.string.hrd)) {
                     hrd()
                 }
+            }
+        }
+
+        //move to employee with username data
+        binding.menu.llKaryawan.setOnClickListener {
+            Intent(this@HomeActivity, EmployeeActivity::class.java).apply {
+                putExtra(extra_username, username)
+                startActivity(this)
             }
         }
     }
@@ -77,15 +85,15 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-    private fun moveToEmployee() {
-        binding.menu.llKaryawan.setOnClickListener {
-            startActivity(Intent(this@HomeActivity, EmployeeActivity::class.java))
-        }
-    }
-
     private fun moveToAddEmployee() {
         binding.menu.llTambahKaryawan.setOnClickListener {
             startActivity(Intent(this@HomeActivity, AddEmployeeActivity::class.java))
+        }
+    }
+
+    private fun moveToSalary() {
+        binding.menu.llGaji.setOnClickListener {
+            startActivity(Intent(this@HomeActivity, SalaryActivity::class.java))
         }
     }
 
