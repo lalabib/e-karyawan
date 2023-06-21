@@ -24,7 +24,7 @@ interface EmployeeDao {
     fun getEmployeeByName(employeeName: String): LiveData<EmployeeEntities>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertEmployee(employee: EmployeeEntities): Long
+    suspend fun insertEmployee(employee: EmployeeEntities)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAllEmployee(vararg employees: EmployeeEntities)

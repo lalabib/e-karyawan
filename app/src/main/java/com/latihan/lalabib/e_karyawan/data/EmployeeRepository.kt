@@ -27,10 +27,8 @@ class EmployeeRepository(
     fun getEmployeeByName(employeeName: String): LiveData<EmployeeEntities> =
         employeeDao.getEmployeeByName(employeeName)
 
-    fun insertEmployee(newEmployee: EmployeeEntities): Long {
-        val data = Callable { employeeDao.insertEmployee(newEmployee) }
-        val executor = executor.submit(data)
-        return executor.get()
+    suspend fun insertEmployee(newEmployee: EmployeeEntities){
+       employeeDao.insertEmployee(newEmployee)
     }
 
     suspend fun deleteEmployee(employee: EmployeeEntities) {
