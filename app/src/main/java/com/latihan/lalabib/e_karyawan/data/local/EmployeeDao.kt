@@ -46,4 +46,7 @@ interface EmployeeDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertSalary(salary: SalaryEntity)
+
+    @Query("Select * from tb_gaji where nama = :employeeName")
+    fun getSalaryByName(employeeName: String): LiveData<SalaryEntity>
 }

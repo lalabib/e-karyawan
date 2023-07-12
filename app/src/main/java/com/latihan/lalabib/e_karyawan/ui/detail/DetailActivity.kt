@@ -71,12 +71,6 @@ class DetailActivity : AppCompatActivity() {
                 val arrayAdapterLengthWork = ArrayAdapter(this, R.layout.dropdown_item, lengthWork)
                 binding.edtLengthWork.setText(employee.lamaBekerja)
                 binding.edtLengthWork.setAdapter(arrayAdapterLengthWork)
-
-
-                //func to change number format to rupiah
-                //val formatter = NumberFormat.getCurrencyInstance(Locale("in", "id"))
-                //val hasilFormat = formatter.format(employee.gajiPokok.toString().toDouble())
-                //binding.edtSalary.setText(hasilFormat.substringBefore(","))
             }
         }
     }

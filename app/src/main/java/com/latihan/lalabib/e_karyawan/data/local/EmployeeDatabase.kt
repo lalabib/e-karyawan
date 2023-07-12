@@ -9,7 +9,7 @@ import com.latihan.lalabib.e_karyawan.data.StartingUser
 
 @Database(
     entities = [EmployeeEntities::class, UserEntities::class, SalaryEntity::class],
-    version = 3,
+    version = 2,
     exportSchema = false
 )
 abstract class EmployeeDatabase : RoomDatabase() {

@@ -7,14 +7,8 @@ import com.latihan.lalabib.e_karyawan.data.local.EmployeeDatabase
 import com.latihan.lalabib.e_karyawan.data.local.EmployeeEntities
 import com.latihan.lalabib.e_karyawan.data.local.SalaryEntity
 import com.latihan.lalabib.e_karyawan.data.local.UserEntities
-import java.util.concurrent.Callable
-import java.util.concurrent.ExecutorService
-import java.util.concurrent.Executors
 
-class EmployeeRepository(
-    private val employeeDao: EmployeeDao,
-    private val executor: ExecutorService
-) {
+class EmployeeRepository(private val employeeDao: EmployeeDao) {
 
     fun getEmployees(): LiveData<List<EmployeeEntities>> = employeeDao.getEmployees()
 
@@ -27,8 +21,8 @@ class EmployeeRepository(
     fun getEmployeeByName(employeeName: String): LiveData<EmployeeEntities> =
         employeeDao.getEmployeeByName(employeeName)
 
-    suspend fun insertEmployee(newEmployee: EmployeeEntities){
-       employeeDao.insertEmployee(newEmployee)
+    suspend fun insertEmployee(newEmployee: EmployeeEntities) {
+        employeeDao.insertEmployee(newEmployee)
     }
 
     suspend fun deleteEmployee(employee: EmployeeEntities) {
@@ -53,10 +47,7 @@ class EmployeeRepository(
         fun getInstance(context: Context): EmployeeRepository = instance ?: synchronized(this) {
             if (instance == null) {
                 val database = EmployeeDatabase.getInstance(context)
-                instance = EmployeeRepository(
-                    database.employeeDao(),
-                    Executors.newSingleThreadExecutor()
-                )
+                instance = EmployeeRepository(database.employeeDao())
             }
             return instance as EmployeeRepository
         }

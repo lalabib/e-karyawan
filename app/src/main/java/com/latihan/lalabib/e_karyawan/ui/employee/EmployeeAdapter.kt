@@ -21,7 +21,6 @@ class EmployeeAdapter(private val onItemClick: (EmployeeEntities) -> Unit) :
         override fun areContentsTheSame(oldItem: EmployeeEntities, newItem: EmployeeEntities): Boolean {
             return oldItem.id == newItem.id
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EmployeeViewHolder {

@@ -5,12 +5,17 @@
     <string name="menu_3">Hitung Gaji Karyawan</string>
     <string name="text_view">Text</string>
 
+    <string name="title_pdf">Laporan Gaji Karyawan: </string>
     <string name="name_title">Nama: </string>
     <string name="address_title">Alamat: </string>
     <string name="gender_title">Jenis Kelamin: </string>
     <string name="position_title">Jabatan: </string>
     <string name="length_of_work_title">Lama Bekerja: </string>
     <string name="salary_title">Gaji Pokok: </string>
+    <string name="month_title">Gaji Bulan: </string>
+    <string name="bonus_title">Bonus: </string>
+    <string name="pph_title">PPH 5%: </string>
+    <string name="sum_salary_title">Total Gaji: </string>
 
     <string name="name">Nama Karyawan</string>
     <string name="address">Alamat</string>
@@ -33,7 +38,7 @@
     <string name="btn_delete">Hapus data Karyawan</string>
     <string name="btn_insert">Tambah data Karyawan</string>
     <string name="btn_edit">Ubah data Karyawan</string>
-    <string name="btn_sum">Simpan Gaji Karyawan</string>
+    <string name="btn_sum">Simpan dan Cetak Gaji Karyawan</string>
     <string name="btn_login">Masuk</string>
     <string name="btn_logout">Keluar</string>
 
@@ -41,6 +46,10 @@
     <string name="succes">Data Karyawan Berhasil ditambahkan!</string>
     <string name="deleted">Data Karyawan Berhasil dihapus!</string>
     <string name="edited">Data Karyawan berhasil diperbarui!</string>
+    <string name="permission_ok">Permission Granted..</string>
+    <string name="permission_cancel">Permission Denied..</string>
+    <string name="pdf_geenerated">File PDF berhasil diunduh..</string>
+    <string name="pdf_geenerated_fail">File PDF gagal diunduh..</string>
     <string name="saved">Data gaji karyawan berhasil disimpan ke database.</string>
     <string name="confirm">Konfirmasi</string>
     <string name="logout_msg">Apakah anda yakin ingin keluar dari aplikasi?</string>

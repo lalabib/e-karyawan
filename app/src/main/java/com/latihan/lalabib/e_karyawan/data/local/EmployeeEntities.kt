@@ -36,7 +36,7 @@ data class SalaryEntity(
     @PrimaryKey
     val id: String,
 
-    val name: String,
+    val nama: String,
 
     val bulan: String,
 
