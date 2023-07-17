@@ -2,6 +2,11 @@ package com.latihan.lalabib.e_karyawan.ui.salary
 
 import android.Manifest.permission.READ_EXTERNAL_STORAGE
 import android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -15,9 +20,10 @@ import android.os.Bundle
 import android.os.Environment
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
+import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
+import androidx.core.content.FileProvider
 import androidx.lifecycle.ViewModelProvider
 import com.latihan.lalabib.e_karyawan.R
 import com.latihan.lalabib.e_karyawan.data.local.EmployeeEntities
@@ -43,7 +49,6 @@ class SalaryActivity : AppCompatActivity() {
     private lateinit var bmp: Bitmap
     private lateinit var scaledBmp: Bitmap
 
-    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySalaryBinding.inflate(layoutInflater)
@@ -143,7 +148,6 @@ class SalaryActivity : AppCompatActivity() {
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.M)
     private fun saveSalaries() {
         val name = binding.edtName.text.toString()
         val month = binding.edtMonth.text.toString()
@@ -176,7 +180,6 @@ class SalaryActivity : AppCompatActivity() {
 
     // on below line we are creating a generate PDF method
     // which is use to generate our PDF file.
-    @RequiresApi(Build.VERSION_CODES.M)
     private fun generatePdf() {
         // creating an object variable
         // for our PDF document.
@@ -272,7 +275,7 @@ class SalaryActivity : AppCompatActivity() {
         // below line is used to set the name of our PDF file and its path.
         val file = File(
             Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
-            "Gaji ${employeeEntities.nama + salaryEntity.bulan}.pdf"
+            "Gaji ${employeeEntities.nama + " " + salaryEntity.bulan}.pdf"
         )
 
         try {
@@ -291,6 +294,51 @@ class SalaryActivity : AppCompatActivity() {
         }
         // after storing our pdf to that location we are closing our PDF file.
         pdfDocument.close()
+
+        val uri = FileProvider.getUriForFile(
+            this@SalaryActivity,
+            "com.your.package.name.fileprovider",
+            file
+        )
+
+        // Create a PendingIntent for opening the PDF file
+        val openPdfIntent = Intent(Intent.ACTION_VIEW)
+        openPdfIntent.setDataAndType(uri, "application/pdf")
+        openPdfIntent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_ACTIVITY_CLEAR_TOP
+        val pendingIntent = PendingIntent.getActivity(
+            this@SalaryActivity,
+            0,
+            openPdfIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+
+        // Create a notification channel if running on Android Oreo or above
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channelId = getString(R.string.notif_id)
+            val channelName = getString(R.string.ch_name)
+            val channelDescription = getString(R.string.desc_ch)
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+
+            val channel = NotificationChannel(channelId, channelName, importance).apply {
+                description = channelDescription
+            }
+
+            // Register the notification channel with the system
+            val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+
+            // Create a notification using NotificationCompat.Builder
+            val notificationBuilder = NotificationCompat.Builder(this@SalaryActivity, getString(R.string.notif_id))
+                .setContentTitle(getString(R.string.notification_title))
+                .setContentText(getString(R.string.notification_msg))
+                .setSmallIcon(R.drawable.ic_download)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true)
+
+            // Show the notification
+            notificationManager.notify(0, notificationBuilder.build())
+        }
     }
 
     // on below line we are calling on request permission result.
@@ -322,7 +370,6 @@ class SalaryActivity : AppCompatActivity() {
         ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
     }
 
-    @RequiresApi(Build.VERSION_CODES.M)
     private fun setupAction() {
         binding.btnSum.setOnClickListener { saveSalaries() }
     }

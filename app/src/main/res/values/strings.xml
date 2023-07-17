@@ -48,6 +48,11 @@
     <string name="edited">Data Karyawan berhasil diperbarui!</string>
     <string name="permission_ok">Permission Granted..</string>
     <string name="permission_cancel">Permission Denied..</string>
+    <string name="notif_id">pdf_channel</string>
+    <string name="ch_name">pdf</string>
+    <string name="desc_ch">ekaryawan pdf download</string>
+    <string name="notification_title">E-karyawan</string>
+    <string name="notification_msg">Gaji Karyawan berhasil diunduh.</string>
     <string name="pdf_geenerated">File PDF berhasil diunduh..</string>
     <string name="pdf_geenerated_fail">File PDF gagal diunduh..</string>
     <string name="saved">Data gaji karyawan berhasil disimpan ke database.</string>
