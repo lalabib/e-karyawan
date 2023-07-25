@@ -33,7 +33,8 @@
             android:exported="false" />
         <activity
             android:name=".ui.home.HomeActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Ekaryawan.NoActionBar"/>
         <activity
             android:name=".ui.add.AddEmployeeActivity"
             android:exported="false" />

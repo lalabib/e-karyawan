@@ -4,6 +4,7 @@
     <string name="menu_2">Tambah Karyawan</string>
     <string name="menu_3">Hitung Gaji Karyawan</string>
     <string name="text_view">Text</string>
+    <string name="greeting">Hai %s, \nSelamat Datang</string>
 
     <string name="title_pdf">Laporan Gaji Karyawan: </string>
     <string name="name_title">Nama: </string>

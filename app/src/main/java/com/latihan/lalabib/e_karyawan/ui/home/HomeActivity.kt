@@ -3,9 +3,8 @@ package com.latihan.lalabib.e_karyawan.ui.home
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
 import com.latihan.lalabib.e_karyawan.R
 import com.latihan.lalabib.e_karyawan.databinding.ActivityHomeBinding
@@ -30,6 +29,7 @@ class HomeActivity : AppCompatActivity() {
         setupViewModel()
         moveToAddEmployee()
         moveToSalary()
+        setupAction()
     }
 
     private fun setupViewModel() {
@@ -48,7 +48,10 @@ class HomeActivity : AppCompatActivity() {
             }
         }
 
-        //move to employee with username data
+        //setup greeting text
+        binding.tvGreeting.text = getString(R.string.greeting, username)
+
+        //move to employee activity with username data
         binding.menu.llKaryawan.setOnClickListener {
             Intent(this@HomeActivity, EmployeeActivity::class.java).apply {
                 putExtra(extra_username, username)
@@ -69,22 +72,6 @@ class HomeActivity : AppCompatActivity() {
         binding.menu.llGaji.visibility = View.VISIBLE
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.home_menu, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.logout -> {
-                logout()
-                true
-            }
-
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
-
     private fun moveToAddEmployee() {
         binding.menu.llTambahKaryawan.setOnClickListener {
             startActivity(Intent(this@HomeActivity, AddEmployeeActivity::class.java))
@@ -98,9 +85,24 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun logout() {
-        startActivity(Intent(this@HomeActivity, LoginActivity::class.java))
-        finish()
+        AlertDialog.Builder(this@HomeActivity).apply {
+            setTitle(getString(R.string.confirm))
+            setMessage(getString(R.string.logout_msg))
+            setPositiveButton(getString(R.string.yes)) { dialog, _ ->
+                startActivity(Intent(this@HomeActivity, LoginActivity::class.java))
+                finish()
+                dialog.cancel()
+            }
+            setNegativeButton(getString(R.string.no)) { dialog, _ ->
+                dialog.cancel()
+            }
+            create()
+            show()
+        }
+    }
 
+    private fun setupAction() {
+        binding.icLogout.setOnClickListener { logout() }
     }
 
     companion object {

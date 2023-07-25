@@ -1,13 +1,10 @@
 package com.latihan.lalabib.e_karyawan.ui.salary
 
-import android.Manifest.permission.READ_EXTERNAL_STORAGE
-import android.Manifest.permission.WRITE_EXTERNAL_STORAGE
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
@@ -20,9 +17,7 @@ import android.os.Bundle
 import android.os.Environment
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
-import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.lifecycle.ViewModelProvider
 import com.latihan.lalabib.e_karyawan.R
@@ -60,7 +55,6 @@ class SalaryActivity : AppCompatActivity() {
 
         setupView()
         setupViewMode()
-        permission()
         setupData()
         setupAction()
     }
@@ -312,7 +306,7 @@ class SalaryActivity : AppCompatActivity() {
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
-        // Create a notification channel if running on Android Oreo or above
+        // Create a notification channel if running on Android Oreo
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channelId = getString(R.string.notif_id)
             val channelName = getString(R.string.ch_name)
@@ -341,35 +335,6 @@ class SalaryActivity : AppCompatActivity() {
         }
     }
 
-    // on below line we are calling on request permission result.
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == REQUEST_CODE_PERMISSIONS) {
-            if (!allPermissionGranted()) {
-                Toast.makeText(this@SalaryActivity, R.string.permission_cancel, Toast.LENGTH_SHORT)
-                    .show()
-            }
-        }
-    }
-
-    private fun permission() {
-        if (!allPermissionGranted()) {
-            ActivityCompat.requestPermissions(
-                this,
-                REQUIRED_PERMISSIONS,
-                REQUEST_CODE_PERMISSIONS
-            )
-        }
-    }
-
-    private fun allPermissionGranted() = REQUIRED_PERMISSIONS.all {
-        ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
-    }
-
     private fun setupAction() {
         binding.btnSum.setOnClickListener { saveSalaries() }
     }
@@ -386,12 +351,8 @@ class SalaryActivity : AppCompatActivity() {
         const val staffBonus = 0.3
 
         // declaring width and height
-        // for our PDF file.
+        // for our PDF file
         var pageHeight = 1120
         var pageWidth = 792
-
-        // on below line we are creating a constant code for runtime permissions.
-        private val REQUIRED_PERMISSIONS = arrayOf(READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE)
-        private const val REQUEST_CODE_PERMISSIONS = 10
     }
 }
